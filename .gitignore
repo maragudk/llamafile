@@ -1,1 +1,5 @@
-/cover.out
+/*.log
+/*.zip
+/build/
+/llamafile/
+/models/
