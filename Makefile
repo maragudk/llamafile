@@ -1,8 +1,11 @@
 .DEFAULT_GOAL := build
 
-model := Llama-3.2-1B-Instruct-Q8_0
+model := Llama-3.2-1B-Instruct-Q5_K_M
+#model := Llama-3.2-1B-Instruct-Q8_0
+#model := Llama-3.2-3B-Instruct-Q5_K_M
 #model := Llama-3.2-3B-Instruct-Q8_0
 #model := Meta-Llama-3.1-8B-Instruct-Q5_K_M
+#model := Meta-Llama-3.1-70B-Instruct-Q5_K_M
 
 llamafile_version := 0.8.13
 
