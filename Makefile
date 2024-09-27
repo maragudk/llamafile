@@ -52,3 +52,7 @@ start:
 upload:
 	AWS_PROFILE=r2 aws s3 cp models/$(model).gguf s3://maragudev/llm/
 	AWS_PROFILE=r2 aws s3 cp build/$(model).llamafile s3://maragudev/llm/
+
+.PHONY: upload-docker
+upload-docker:
+	docker push maragudk/`echo $(model) | tr A-Z a-z`:latest
