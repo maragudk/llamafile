@@ -19,3 +19,5 @@ To run the Llamafile:
 ```shell
 make start
 ```
+
+Made with ✨sparkles✨ by [maragu](https://www.maragu.dev/).

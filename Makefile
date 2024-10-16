@@ -9,7 +9,7 @@ model := Llama-3.2-1B-Instruct-Q5_K_M
 #model := Meta-Llama-3.1-8B-Instruct-Q5_K_M
 #model := Meta-Llama-3.1-70B-Instruct-Q5_K_M
 
-llamafile_version := 0.8.13
+llamafile_version := 0.8.14
 
 .PHONY: build
 build: llamafile/bin/llamafile clean
