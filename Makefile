@@ -9,8 +9,10 @@ model := Llama-3.2-1B-Instruct-Q5_K_M
 #model := Meta-Llama-3.1-8B-Instruct-Q5_K_M
 #model := Meta-Llama-3.1-70B-Instruct-Q5_K_M
 #model := qwen2.5-0.5b-instruct-q5_k_m
+#model := qwen2.5-7b-instruct-q5_k_m
 #model := qwen2.5-14b-instruct-q5_k_m
 #model := qwen2.5-32b-instruct-q5_k_m
+#model := qwen2.5-72b-instruct-q5_k_m
 
 #license := LICENSE-Llama-3.1
 license := LICENSE-Llama-3.2
