@@ -9,4 +9,4 @@ EXPOSE 8080
 
 ENTRYPOINT ["/bin/sh", "./model"]
 
-CMD ["--host", "0.0.0.0"]
+CMD ["--server", "--host", "0.0.0.0"]
