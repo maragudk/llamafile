@@ -2,7 +2,8 @@ FROM debian:stable-slim AS runner
 
 WORKDIR /bin
 
-COPY LICENSE* ./
+ARG LICENSE=LICENSE-Llama-3.2
+COPY ${LICENSE} ./
 COPY build/*.llamafile ./model
 
 EXPOSE 8080
