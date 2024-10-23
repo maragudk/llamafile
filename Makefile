@@ -20,8 +20,7 @@ license := LICENSE-Llama-3.2
 
 llamafile_version := 0.8.14
 
-.PHONY: build
-build: llamafile/bin/llamafile clean
+build/$(model).llamafile: llamafile/bin/llamafile models/$(model).gguf clean
 	mkdir -p build
 	cp llamafile/bin/llamafile build/$(model).llamafile
 	echo "-m\n$(model).gguf\n-c\n0\n..." >build/.args
@@ -40,10 +39,9 @@ clean:
 .PHONY: clean-all
 clean-all: clean
 	rm -rf llamafile
-	rm -rf models
+	rm -f models/$(model).gguf
 
-.PHONY: download
-download:
+models/$(model).gguf:
 	mkdir -p models
 	cd models && curl -L -O -C - https://assets.maragu.dev/llm/$(model).gguf
 
@@ -54,7 +52,7 @@ llamafile/bin/llamafile:
 	mv llamafile-$(llamafile_version) llamafile
 
 .PHONY: start
-start:
+start: build/$(model).llamafile
 	./build/$(model).llamafile
 
 .PHONY: upload
