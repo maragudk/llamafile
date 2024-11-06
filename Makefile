@@ -18,7 +18,7 @@ model := Llama-3.2-1B-Instruct-Q5_K_M
 license := LICENSE-Llama-3.2
 #license := LICENSE-qwen
 
-llamafile_version := 0.8.14
+llamafile_version := 0.8.16
 
 build/$(model).llamafile: llamafile/bin/llamafile models/$(model).gguf clean
 	mkdir -p build
