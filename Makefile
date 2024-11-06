@@ -1,4 +1,4 @@
-.DEFAULT_GOAL := build
+.DEFAULT_GOAL := start
 
 #model := Llama-3.2-1B-Instruct-Q4_K_M
 model := Llama-3.2-1B-Instruct-Q5_K_M
@@ -20,7 +20,7 @@ license := LICENSE-Llama-3.2
 
 llamafile_version := 0.8.16
 
-build/$(model).llamafile: llamafile/bin/llamafile models/$(model).gguf clean
+build/$(model).llamafile: llamafile/bin/llamafile models/$(model).gguf
 	mkdir -p build
 	cp llamafile/bin/llamafile build/$(model).llamafile
 	echo "-m\n$(model).gguf\n-c\n0\n..." >build/.args
@@ -39,7 +39,6 @@ clean:
 .PHONY: clean-all
 clean-all: clean
 	rm -rf llamafile
-	rm -f models/$(model).gguf
 
 models/$(model).gguf:
 	mkdir -p models
