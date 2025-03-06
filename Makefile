@@ -15,14 +15,14 @@ model := Llama-3.2-1B-Instruct-Q5_K_M
 #model := qwen2.5-32b-instruct-q5_k_m
 #model := qwen2.5-72b-instruct-q5_k_m
 #model := SmolLM2-135M-Instruct-Q8_0
-#model := mxbai-embed-large-v1-f16
+# model := mxbai-embed-large-v1-f16
 
 #license := LICENSE-Llama-3.1
 license := LICENSE-Llama-3.2
 #license := LICENSE-Llama-3.3
 #license := LICENSE-qwen
 #license := LICENSE-Smol-2
-#license := LICENSE-Apache-2
+# license := LICENSE-Apache-2
 
 llamafile_version := 0.9.0
 
@@ -62,8 +62,8 @@ start: build/$(model).llamafile
 
 .PHONY: upload
 upload: models/$(model).gguf build/$(model).llamafile
-	AWS_PROFILE=r2 aws s3 cp models/$(model).gguf s3://maragudev/llm/
-	AWS_PROFILE=r2 aws s3 cp build/$(model).llamafile s3://maragudev/llm/
+	AWS_PROFILE=r2 aws s3 cp --checksum-algorithm CRC32 models/$(model).gguf s3://maragudev/llm/
+	AWS_PROFILE=r2 aws s3 cp --checksum-algorithm CRC32 build/$(model).llamafile s3://maragudev/llm/
 
 .PHONY: upload-docker
 upload-docker:
