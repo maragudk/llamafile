@@ -22,7 +22,7 @@ license := LICENSE-Llama-3.2
 #license := LICENSE-qwen
 #license := LICENSE-Smol-2
 
-llamafile_version := 0.8.17
+llamafile_version := 0.9.0
 
 build/$(model).llamafile: llamafile/bin/llamafile models/$(model).gguf
 	mkdir -p build
@@ -56,7 +56,7 @@ llamafile/bin/llamafile:
 
 .PHONY: start
 start: build/$(model).llamafile
-	./build/$(model).llamafile
+	./build/$(model).llamafile --server --v2
 
 .PHONY: upload
 upload: models/$(model).gguf build/$(model).llamafile
