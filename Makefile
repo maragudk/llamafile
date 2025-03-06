@@ -8,6 +8,7 @@ model := Llama-3.2-1B-Instruct-Q5_K_M
 #model := Llama-3.2-3B-Instruct-Q8_0
 #model := Meta-Llama-3.1-8B-Instruct-Q5_K_M
 #model := Meta-Llama-3.1-70B-Instruct-Q5_K_M
+# model := Llama-3.3-70B-Instruct-Q5_K_M
 #model := qwen2.5-0.5b-instruct-q5_k_m
 #model := qwen2.5-7b-instruct-q5_k_m
 #model := qwen2.5-14b-instruct-q5_k_m
@@ -17,10 +18,11 @@ model := Llama-3.2-1B-Instruct-Q5_K_M
 
 #license := LICENSE-Llama-3.1
 license := LICENSE-Llama-3.2
+# license := LICENSE-Llama-3.3
 #license := LICENSE-qwen
 #license := LICENSE-Smol-2
 
-llamafile_version := 0.8.16
+llamafile_version := 0.8.17
 
 build/$(model).llamafile: llamafile/bin/llamafile models/$(model).gguf
 	mkdir -p build
