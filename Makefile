@@ -30,7 +30,7 @@ build/$(model).llamafile: llamafile/bin/llamafile models/$(model).gguf
 	chmod a+x build/$(model).llamafile
 
 .PHONY: build-docker
-build-docker: build
+build-docker: build/$(model).llamafile
 	docker build --platform linux/amd64,linux/arm64 --build-arg LICENSE=$(license) -t maragudk/`echo $(model) | tr A-Z a-z`:latest .
 
 .PHONY: clean
@@ -57,7 +57,7 @@ start: build/$(model).llamafile
 	./build/$(model).llamafile
 
 .PHONY: upload
-upload:
+upload: models/$(model).gguf build/$(model).llamafile
 	AWS_PROFILE=r2 aws s3 cp models/$(model).gguf s3://maragudev/llm/
 	AWS_PROFILE=r2 aws s3 cp build/$(model).llamafile s3://maragudev/llm/
 
